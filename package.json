@@ -1,0 +1,22 @@
+{
+	"name": "jets-countdown",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"axios": "^0.18.0",
+		"countdown": "^2.6.0",
+		"date-fns": "^1.29.0",
+		"react": "^16.3.2",
+		"react-dom": "^16.3.2",
+		"react-scripts": "1.1.4",
+		"source-map-explorer": "^1.5.0"
+	},
+	"scripts": {
+		"analyze": "source-map-explorer build/static/js/main.*",
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"deploy": "yarn build && ssh root@tweeres.ca 'rm -r /var/www/jetscountdown'; scp -r build root@tweeres.ca:/var/www/jetscountdown && scp etc/jetscountdown root@tweeres.ca:/etc/nginx/sites-available/jetscountdown && ssh root@tweeres.ca 'nginx -s reload'",
+		"test": "react-scripts test --env=jsdom",
+		"eject": "react-scripts eject"
+	}
+}

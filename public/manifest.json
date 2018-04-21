@@ -1,0 +1,15 @@
+{
+	"name": "Jets Countdown",
+	"short_name": "Countdown",
+	"icons": [
+		{
+			"src": "jets.png",
+			"sizes": "512x512 256x256 192x192 128x128 64x64 32x32 24x24 16x16",
+			"type": "image/x-icon"
+		}
+	],
+	"start_url": "/",
+	"display": "standalone",
+	"theme_color": "rgb(4, 30, 66)",
+	"background_color": "rgb(4, 30, 66)"
+}
