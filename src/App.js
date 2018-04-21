@@ -44,8 +44,11 @@ class App extends Component {
 					const { gameDate } = game;
 
 					this.gameDate = new Date(gameDate);
-					this.intervalHandle = setInterval(this.updateString, 1000);
-					this.updateString();
+					this.intervalHandle = setInterval(
+						this.updateCountdownString,
+						1000
+					);
+					this.updateCountdownString();
 				}
 			}
 		}
@@ -61,7 +64,7 @@ class App extends Component {
 			</div>
 		);
 	}
-	updateString = () => {
+	updateCountdownString = () => {
 		this.setState({
 			countdownString: strings.countdown(this.gameDate)
 		});
