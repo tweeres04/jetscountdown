@@ -10,7 +10,7 @@ const strings = {
 	noGame: 'No game scheduled',
 	live: 'Jets are live!',
 	countdown: gameDate =>
-		`${countdown(this.gameDate).toString()} till the Jets play next`,
+		`${countdown(gameDate).toString()} till the Jets play next`,
 	dateFormat: 'YYYY-MM-DD'
 };
 
