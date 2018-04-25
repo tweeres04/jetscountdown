@@ -60,7 +60,12 @@ class App extends Component {
 				<div className="logo">
 					<Logo />
 				</div>
-				{countdownString}
+				<div className="countdown">{countdownString}</div>
+				{this.gameDate && (
+					<div className="date">
+						({this.gameDate.toLocaleString()})
+					</div>
+				)}
 			</div>
 		);
 	}
