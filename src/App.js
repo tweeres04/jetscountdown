@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import dateFormat from 'date-fns/format';
 import addMonths from 'date-fns/add_months';
+import isPast from 'date-fns/is_past';
 import countdown from 'countdown';
 
 import Logo from './JetsLogo';
@@ -44,11 +45,19 @@ class App extends Component {
 					const { gameDate } = game;
 
 					this.gameDate = new Date(gameDate);
-					this.intervalHandle = setInterval(
-						this.updateCountdownString,
-						1000
-					);
-					this.updateCountdownString();
+
+					if (
+						abstractGameState == 'Preview' &&
+						isPast(this.gameDate)
+					) {
+						this.setState({ countdownString: strings.live });
+					} else {
+						this.intervalHandle = setInterval(
+							this.updateCountdownString,
+							1000
+						);
+						this.updateCountdownString();
+					}
 				}
 			}
 		}
