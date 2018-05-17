@@ -26,7 +26,7 @@ function getNextGame(dates) {
 	const {
 		status: { abstractGameState }
 	} = game;
-	game = abstractGameState == 'Final' ? dates[1] && dates[1].games[0] : game;
+	return abstractGameState == 'Final' ? dates[1] && dates[1].games[0] : game;
 }
 
 async function getGameFromNhlApi() {
