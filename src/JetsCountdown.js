@@ -63,7 +63,7 @@ class JetsCountdownContainer extends Component {
 	}
 	render() {
 		const { loading, game } = this.state;
-		return loading || (game && <JetsCountdown game={game} />);
+		return loading || <JetsCountdown game={game} />;
 	}
 	componentWillUnmount() {
 		clearInterval(this.intervalHandle);
@@ -71,12 +71,10 @@ class JetsCountdownContainer extends Component {
 }
 
 function JetsCountdown({ game }) {
-	const {
-		status: { abstractGameState }
-	} = game;
-	let { gameDate } = game;
+	const { status: { abstractGameState } = {} } = game || {};
+	let { gameDate } = game || {};
 
-	gameDate = new Date(gameDate);
+	gameDate = gameDate && new Date(gameDate);
 
 	const countdownString = !game
 		? strings.noGame
